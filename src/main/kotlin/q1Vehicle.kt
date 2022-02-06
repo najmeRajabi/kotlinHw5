@@ -1,4 +1,15 @@
 fun main() {
+    val vehicleList = arrayListOf<Any>()
+    val yellowTaxi = Taxi()
+    val amirTaxi = Taxi()
+    val beheshtiSchoolBus =Bus()
+    val redBus =Bus()
+    val gharaziAmbulance = Ambulance()
+    val saeedTruck =Truck()
+    val goliCar =SportCar()
+    val aliCar = SportCar()
+    val greenVan = Van()
+    val johnVan = Van()
 
 }
 interface PublicTransportationVehicle {
