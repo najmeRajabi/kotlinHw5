@@ -12,17 +12,26 @@ fun main() {
     val johnVan = Van()
 
 }
-interface PublicTransportationVehicle {
-    fun maxSpeed()
-    fun maxCapacity()
+interface Vehicle{
+    val name :String
 }
-interface ServiceTransportationVehicle{
+interface PublicTransportationVehicle:Vehicle {
     fun maxSpeed()
     fun maxCapacity()
+    override val name: String
+        get() = TODO("Not yet implemented")
 }
-interface PrivateTransportationVehicle{
+interface ServiceTransportationVehicle:Vehicle{
     fun maxSpeed()
     fun maxCapacity()
+    override val name: String
+        get() = TODO("Not yet implemented")
+}
+interface PrivateTransportationVehicle:Vehicle{
+    fun maxSpeed()
+    fun maxCapacity()
+    override val name: String
+        get() = TODO("Not yet implemented")
 }
 class Taxi:PublicTransportationVehicle{
     override fun maxSpeed() {
