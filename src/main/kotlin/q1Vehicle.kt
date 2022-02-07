@@ -30,26 +30,17 @@ abstract class Vehicles:Comparable<Vehicles>{
         return result
     }
 }
-interface Vehicle{
-    val name :String
-}
-interface PublicTransportationVehicle:Vehicle {
+interface PublicTransportationVehicle {
     fun maxSpeed():Int
     fun maxCapacity():Int
-    override val name: String
-        get() = TODO("Not yet implemented")
 }
-interface ServiceTransportationVehicle:Vehicle{
+interface ServiceTransportationVehicle{
     fun maxSpeed():Int
     fun maxCapacity():Int
-    override val name: String
-        get() = TODO("Not yet implemented")
 }
-interface PrivateTransportationVehicle:Vehicle{
+interface PrivateTransportationVehicle{
     fun maxSpeed():Int
     fun maxCapacity():Int
-    override val name: String
-        get() = TODO("Not yet implemented")
 }
 class Taxi:PublicTransportationVehicle, Vehicles() {
     override fun maxSpeed():Int {
