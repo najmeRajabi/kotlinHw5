@@ -2,6 +2,8 @@ fun main() {
     val main = Main()
     main.printToString()
     main.printTotalPayment()
+    println( main.sara == main.maryam)
+    main.printOldestManager()
 
 
 }
@@ -48,11 +50,15 @@ class Main{
     }
     fun printTotalPayment(){
         var totalPayment =0.0
-//        employeeList.addAll(arrayOf(ali,reza,farhad,sama))
         for (i in 0 until employeeList.size-1){
             totalPayment += employeeList[i].salary(hours[i])
         }
         println("totalPayment = $totalPayment")
     }
+    fun printOldestManager(){
+        var managerList= arrayListOf(ali,reza,farhad)
+        println( managerList.maxByOrNull { manager -> manager.age })
+    }
+
 
 }
