@@ -1,4 +1,8 @@
 fun main() {
+    val main = Main()
+    main.printToString()
+    main.printTotalPayment()
+
 
 }
 enum class Gender{
@@ -29,13 +33,26 @@ class Clerk(override val name: String,override val age: Int,
     }
 }
 data class Customer(var name :String,var age:Int,var gender:Gender){}
-class Main1{
+class Main{
     var ali = Manager("Ali",25,104.0)
     var reza = Manager("Reza",42,120.0)
     var farhad = Manager("Farhad",34,120.0)
     val sama = Clerk("Sama" , 26 , 110.0)
-    val hours= arrayListOf(140,150,130,180)
+    val hours= arrayListOf(140.0,150.0,130.0,180.0)
     val sara = Customer("sara",22,Gender.Female)
     val maryam = Customer("maryam" , 30 , Gender.Female)
+    val employeeList = arrayListOf<Employee>()
+    fun printToString(){
+        employeeList.addAll(arrayOf(ali,reza,farhad,sama))
+        employeeList.forEach { println(it) }
+    }
+    fun printTotalPayment(){
+        var totalPayment =0.0
+//        employeeList.addAll(arrayOf(ali,reza,farhad,sama))
+        for (i in 0 until employeeList.size-1){
+            totalPayment += employeeList[i].salary(hours[i])
+        }
+        println("totalPayment = $totalPayment")
+    }
 
 }
