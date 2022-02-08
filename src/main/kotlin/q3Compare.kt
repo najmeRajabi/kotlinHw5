@@ -1,13 +1,13 @@
 import kotlin.math.max
 
 fun main() {
-    var compare =CompareTowThing(5.5,2.3)
+    val compare =CompareTowThing(5.5,2.3)
     println(compare.compare())
 
 }
-class CompareTowThing<T>(val item:T,val item2: T){
+class CompareTowThing<T>(private val item:T, private val item2: T){
     fun compare(): Any {
-        var result=if (item is Int && item2 is Int){
+        val result=if (item is Int && item2 is Int){
             maxOf(item as Int,item2 as Int)
         }else if (item is Double && item2 is Double){
             max(item , item2)
