@@ -12,23 +12,17 @@ fun main() {
     val johnVan = Van()
     vehicleList.addAll(arrayOf(yellowTaxi,amirTaxi,beheshtiSchoolBus,
         redBus,gharaziAmbulance,saeedTruck,goliCar,aliCar,greenVan,johnVan))
-    var sortedBaseCapacity = arrayListOf<Vehicles>()
-    for (item in 0 until vehicleList.size){
-        if (vehicleList[item] > vehicleList[item+1]){}
-    }
+    vehicleList.sortBy { vehicles -> vehicles.maxSpeedVar }
+    vehicleList.forEach{ println(it) }
+    println(".....................................................................................")
+    vehicleList.sortBy { vehicles -> vehicles.maxCapacityVar }
+    vehicleList.forEach{ println(it.toString()) }
 
 
 }
-abstract class Vehicles:Comparable<Vehicles>{
-    override fun compareTo(other: Vehicles): Int {
-        var result = 0
-        if (this is Truck ){
-            result = -1
-        }else if (this is SportCar){
-            result = 1
-        }
-        return result
-    }
+abstract class Vehicles{
+    abstract var maxSpeedVar :Int
+    abstract var maxCapacityVar:Int
 }
 interface PublicTransportationVehicle {
     fun maxSpeed():Int
@@ -43,56 +37,75 @@ interface PrivateTransportationVehicle{
     fun maxCapacity():Int
 }
 class Taxi:PublicTransportationVehicle, Vehicles() {
+    override var maxSpeedVar =100
+    override var maxCapacityVar = 4
+
     override fun maxSpeed():Int {
-        return 100
+        return maxSpeedVar
     }
 
     override fun maxCapacity():Int {
-        return 4
+        return maxCapacityVar
     }
+
 }
 class Bus:PublicTransportationVehicle,Vehicles(){
+    override var maxSpeedVar =80
+    override var maxCapacityVar = 42
+
     override fun maxSpeed():Int {
-        return 80
+        return maxSpeedVar
     }
 
     override fun maxCapacity():Int {
-        return 42
+        return maxCapacityVar
     }
 }
 class Ambulance:ServiceTransportationVehicle,Vehicles(){
+    override var maxSpeedVar =120
+    override var maxCapacityVar = 5
+
     override fun maxSpeed():Int {
-        return 120
+        return maxSpeedVar
     }
 
     override fun maxCapacity():Int {
-        return 5
+        return maxCapacityVar
     }
 }
 class Truck:ServiceTransportationVehicle,Vehicles(){
+    override var maxSpeedVar =70
+    override var maxCapacityVar = 1
+
     override fun maxSpeed():Int {
-        return 70
+        return maxSpeedVar
     }
 
     override fun maxCapacity():Int {
-        return 1
+        return maxCapacityVar
     }
 }
 class SportCar:PrivateTransportationVehicle,Vehicles(){
+    override var maxSpeedVar =300
+    override var maxCapacityVar = 2
+
     override fun maxSpeed():Int {
-        return 300
+        return maxSpeedVar
     }
 
     override fun maxCapacity():Int {
-        return 2
+        return maxCapacityVar
     }
 }
 class Van:PrivateTransportationVehicle,Vehicles(){
+    override var maxSpeedVar =90
+    override var maxCapacityVar = 15
+
     override fun maxSpeed():Int {
-        return 90
+        return maxSpeedVar
     }
 
     override fun maxCapacity():Int {
-        return 15
+        return maxCapacityVar
     }
 }
