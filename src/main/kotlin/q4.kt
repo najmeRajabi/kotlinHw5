@@ -1,7 +1,8 @@
 fun main() {
     val list= arrayListOf(1,2,3,4,5,6)
-    val printClass =PrintClass()
-    printClass.print(list)
+    PrintClass().also {
+        it.print(list)
+    }
 
 
 }
