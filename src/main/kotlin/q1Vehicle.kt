@@ -12,11 +12,13 @@ fun main() {
     val johnVan = Van()
     vehicleList.addAll(arrayOf(yellowTaxi,amirTaxi,beheshtiSchoolBus,
         redBus,gharaziAmbulance,saeedTruck,goliCar,aliCar,greenVan,johnVan))
-    vehicleList.sortBy { vehicles -> vehicles.maxSpeedVar }
+    vehicleList.sortBy { vehicles -> vehicles.maxCapacityVar }
     vehicleList.forEach{ println(it) }
     println(".....................................................................................")
-    vehicleList.sortBy { vehicles -> vehicles.maxCapacityVar }
-    vehicleList.forEach{ println(it.toString()) }
+    vehicleList.sortBy { vehicles -> vehicles.maxSpeedVar }
+    for (i in vehicleList.size-1 downTo 0){
+        println(vehicleList[i])
+    }
 
 
 }
