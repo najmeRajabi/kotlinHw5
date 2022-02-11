@@ -16,7 +16,7 @@ fun main() {
         }
     }
 
-    //..O n^2.............
+    //..O n!.............
     for (i in 1..factorial(n)){
         println("Your input is:$i")
     }
